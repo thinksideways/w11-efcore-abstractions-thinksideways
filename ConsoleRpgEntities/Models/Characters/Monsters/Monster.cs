@@ -16,6 +16,7 @@ namespace ConsoleRpgEntities.Models.Characters.Monsters
         }
 
         public abstract void Attack(ITargetable target);
+        public abstract void Die();
 
     }
 }
