@@ -1,5 +1,7 @@
 ﻿using ConsoleRpgEntities.Models.Abilities.PlayerAbilities;
 using ConsoleRpgEntities.Models.Attributes;
+using ConsoleRpgEntities.Models.Items;
+using System.Collections.Generic;
 
 namespace ConsoleRpgEntities.Models.Characters
 {
@@ -11,6 +13,8 @@ namespace ConsoleRpgEntities.Models.Characters
         public string Name { get; set; }
         public int Health { get; set; }
         public virtual IEnumerable<Ability> Abilities { get; set; }
+        // for the sake of this assignment I'm not differentiating between non-combat and regular gear
+        public virtual ICollection<PlayerItem> Items { get; set; }
 
         public void Attack(ITargetable target)
         {
@@ -28,6 +32,10 @@ namespace ConsoleRpgEntities.Models.Characters
             {
                 Console.WriteLine($"{Name} does not have the ability {ability.Name}!");
             }
+        }
+
+        public void Equip(ICombatGear combatGear) {
+            
         }
     }
 }
